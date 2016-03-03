@@ -1,0 +1,14 @@
+<h1>Overview</h1>
+<div ng-if="vm.showNewPlayer">
+    <input type="text" name="name" placeholder="Naam" ng-model="vm.playersName">
+    <span ng-click="vm.addPlayer()">Speler toevoegen</span>
+</div>
+<div ng-if="!vm.showNewPlayer">
+    <span>Current dealer: </span>{{vm.currentDealer.player.name}}
+</div>
+<div ng-repeat="player in vm.players">
+    {{player.score}} | {{player.name}} | <input type="number" ng-model="player.offer"> | <input type="number" ng-model="player.hits">
+</div>
+<div ng-if="!vm.showNewPlayer">
+    <span ng-click="vm.submitRound()">> > >Next round > > ></span>
+</div>

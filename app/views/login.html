@@ -1,0 +1,33 @@
+<div id="login-panel">
+    <div class="panel">
+        <div class="header">
+            <div class="header-item">WELCOME</div>
+        </div>
+        <div class="fields-container">
+            <div class="field">
+                <label for="email">Email</label>
+                <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                    <input class="form-control" type="text" placeholder="Email address" id="email">
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                    <input class="form-control" type="password" placeholder="Password" id="password">
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div class="submit-container">
+            <div class="block">
+                <div class="input-group" ng-click="vm.login()">
+                    <input class="form-control" type="submit" value="Log In">
+                    <span class="input-group-addon"><i class="fa fa-chevron-right fa-fw"></i></span>
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>
