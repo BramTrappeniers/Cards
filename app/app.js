@@ -2,7 +2,12 @@
 
 define(['services/routeResolver'], function () {
 
-    var app = angular.module('dashboardApp', ['ngRoute', 'routeResolverServices']);
+    var underscore = angular.module('underscore', []);
+    underscore.factory('_', ['$window', function($window){
+        return $window._;
+    }]);
+
+    var app = angular.module('dashboardApp', ['ngRoute', 'routeResolverServices', 'underscore']);
 
     app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
         '$compileProvider', '$filterProvider', '$provide', '$httpProvider',

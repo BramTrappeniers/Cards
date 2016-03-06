@@ -8,9 +8,25 @@ define(['app'], function (app) {
         console.log('Loading overview ...');
 
         var vm = this;
-        vm.players = [];
-        vm.showNewPlayer = true;
 
+        var nextId = 0;
+
+        vm.showNewPlayer = true;
+        vm.SECTIONS = {
+            AddPlayer: {
+                show: true
+            },
+            Dealer: {
+                show: false
+            }
+        }
+        var randomDealer = function () {
+            var index = Math.floor(Math.random() * vm.players.length);
+            return {
+                player: vm.players[index],
+                index: index
+            }
+        }
         var getNextDealer = function () {
             var index = 0
             if(vm.currentDealer != undefined) {
@@ -29,19 +45,23 @@ define(['app'], function (app) {
             if(vm.playersName != null && vm.playersName.length > 0) {
                 var newPlayer = {
                     name: vm.playersName,
-                    score: 0
+                    score: 0,
+                    active: false,
+                    id: nextId++
                 };
-                vm.players.push(newPlayer);
-                if(vm.players.length == 4){
-                    vm.startGame();
+                if(vm.players == null) {
+                    vm.players = [];
                 }
+                vm.players.push(newPlayer);
             }
             vm.playersName = undefined;
         };
         vm.startGame = function () {
             console.log("Start game ...");
-            vm.showNewPlayer = false;
-            vm.currentDealer = getNextDealer();
+            vm.SECTIONS.AddPlayer.show = false;
+            vm.SECTIONS.Dealer.show = true;
+            vm.currentDealer = randomDealer();
+            vm.activatePlayer(getNextDealer().player);
         };
         vm.submitRound = function () {
             for(var i = 0; i < vm.players.length; i++) {
@@ -55,6 +75,43 @@ define(['app'], function (app) {
             };
             console.log(vm.players);
             vm.currentDealer = getNextDealer();
+        }
+        vm.activatePlayer = function (player) {
+            console.log("Open bidding ..." + player.id);
+            for(var i = 0; i< vm.players.length; i++){
+                vm.players[i].active = false;
+            }
+            player.active = true;
+            vm.bidPlayer = player.bid;
+//            _.each(vm.players, function(player) {
+//                player.active = false;
+//            });
+        };
+        vm.registerBid = function (player) {
+            //TODO:
+            // - check number and format to number
+            // - improve focus of the field
+            console.log("Register bidding ... ");
+            player.bid = vm.bidPlayer;
+            vm.bidPlayer = null;
+            for(var i = 0; i< vm.players.length; i++){
+                if(player == vm.players[i]) {
+                    var nextPlayerIndex = i + 1;
+                    if(nextPlayerIndex == vm.players.length) {
+                        vm.activatePlayer(vm.players[0])
+                    } else {
+                        vm.activatePlayer(vm.players[nextPlayerIndex]);
+                    }
+                }
+            }
+        }
+        vm.canSubmit = function () {
+            for(var i = 0; i< vm.players.length; i++){
+                if(vm.players[i].bid == null || vm.players[i].hits == null) {
+                    return false;
+                }
+                return true;
+            }
         }
 
         var addDummyData = function () {

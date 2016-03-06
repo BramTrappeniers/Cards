@@ -1,14 +1,48 @@
-<h1>Overview</h1>
-<div ng-if="vm.showNewPlayer">
-    <input type="text" name="name" placeholder="Naam" ng-model="vm.playersName">
-    <span ng-click="vm.addPlayer()">Speler toevoegen</span>
-</div>
-<div ng-if="!vm.showNewPlayer">
-    <span>Current dealer: </span>{{vm.currentDealer.player.name}}
-</div>
-<div ng-repeat="player in vm.players">
-    {{player.score}} | {{player.name}} | <input type="number" ng-model="player.offer"> | <input type="number" ng-model="player.hits">
-</div>
-<div ng-if="!vm.showNewPlayer">
-    <span ng-click="vm.submitRound()">> > >Next round > > ></span>
-</div>
+<section id="header">
+    <div id="AddPlayer" ng-if="vm.SECTIONS.AddPlayer.show">
+        <form ng-submit="vm.addPlayer()">
+            <input type="text" placeholder="Naam" ng-model="vm.playersName">
+            <!--<div class="submit" ng-click="vm.addPlayer()"><i class="fa fa-check"></i></div>-->
+            <!--<input type="submit" ng-click="vm.addPlayer()">-->
+        </form>
+    </div>
+    <div id="Dealer" ng-if="vm.SECTIONS.Dealer.show">
+        {{vm.currentDealer.player.name}}
+    </div>
+</section>
+<section id="content">
+    <div ng-repeat="player in vm.players" id="players" >
+        <div class="player" ng-class="{active: player.active}" ng-click="vm.activatePlayer(player)">
+            <div>{{player.name}}</div>
+            <div class="bid" ng-if="player.bid">{{player.bid}}</div>
+        </div>
+        <div class="bid" ng-if="player.active">
+            <form ng-submit="vm.registerBid(player)">
+                <input type="text" ng-model="vm.bidPlayer" tabindex="0" autofocus="true">
+            </form>
+        </div>
+    </div>
+</section>
+<section id="actions">
+    <div ng-if="!vm.currentDealer" ng-click="vm.startGame()" ng-class="{full: vm.players}">Start Game</div>
+    <div ng-if="!vm.players">Join Game</div>
+    <div ng-if="vm.canSubmit()" class="full">Time to get fucked in next round</div>
+    <div ng-if="vm.currentDealer && !vm.canSubmit()" class="full">Er is er eentje te laat</div>
+</section>
+
+<!--<div ng-if="vm.showNewPlayer">-->
+    <!--<input type="text" name="name" placeholder="Naam" ng-model="vm.playersName">-->
+    <!--<span ng-click="vm.addPlayer()">Speler toevoegen</span>-->
+<!--</div>-->
+<!--<div ng-if="!vm.showNewPlayer">-->
+    <!--<span>Current dealer: </span>{{vm.currentDealer.player.name}}-->
+<!--</div>-->
+
+
+
+<!--<div ng-repeat="player in vm.players">-->
+    <!--<div class="score">{{player.score}}</div> | {{player.name}} | <input type="number" ng-model="player.offer"> | <input type="number" ng-model="player.hits">-->
+<!--</div>-->
+<!--<div ng-if="!vm.showNewPlayer">-->
+    <!--<span ng-click="vm.submitRound()">> > >Next round > > ></span>-->
+<!--</div>-->

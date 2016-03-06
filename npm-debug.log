@@ -1,0 +1,102 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.11.2
+3 info using node@v0.12.5
+4 verbose readDependencies loading dependencies from /Users/JA15283/development/afterten/Cards/package.json
+5 verbose install where, deps [ '/Users/JA15283/development/afterten/Cards',
+5 verbose install   [ 'karma',
+5 verbose install     'karma-chrome-launcher',
+5 verbose install     'karma-firefox-launcher',
+5 verbose install     'karma-jasmine',
+5 verbose install     'protractor',
+5 verbose install     'http-server',
+5 verbose install     'tmp',
+5 verbose install     'bower',
+5 verbose install     'shelljs' ] ]
+6 verbose install where, peers [ '/Users/JA15283/development/afterten/Cards', [] ]
+7 verbose installManyTop reading for lifecycle /Users/JA15283/development/afterten/Cards/package.json
+8 info preinstall angular-phonecat@0.0.0
+9 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/bower/package.json
+10 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/http-server/package.json
+11 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/karma/package.json
+12 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/karma-chrome-launcher/package.json
+13 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/karma-firefox-launcher/package.json
+14 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/karma-jasmine/package.json
+15 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/protractor/package.json
+16 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/shelljs/package.json
+17 verbose installManyTop reading scoped package data from /Users/JA15283/development/afterten/Cards/node_modules/tmp/package.json
+18 info package.json http-server@0.6.1 No license field.
+19 info package.json tmp@0.0.23 No license field.
+20 info package.json shelljs@0.2.6 No license field.
+21 verbose readDependencies loading dependencies from /Users/JA15283/development/afterten/Cards/package.json
+22 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/bower/package.json
+23 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/http-server/package.json
+24 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/karma/package.json
+25 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/karma-chrome-launcher/package.json
+26 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/karma-firefox-launcher/package.json
+27 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/karma-jasmine/package.json
+28 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/protractor/package.json
+29 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/shelljs/package.json
+30 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/tmp/package.json
+31 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/.bin/bower/package.json
+32 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/.bin/http-server/package.json
+33 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/.bin/karma/package.json
+34 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/.bin/protractor/package.json
+35 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/.bin/shjs/package.json
+36 verbose targetResolver reading package data from /Users/JA15283/development/afterten/Cards/node_modules/.bin/webdriver-manager/package.json
+37 verbose already installed skipping karma-jasmine@~0.1.0 /Users/JA15283/development/afterten/Cards
+38 verbose already installed skipping protractor@^2.1.0 /Users/JA15283/development/afterten/Cards
+39 verbose already installed skipping http-server@^0.6.1 /Users/JA15283/development/afterten/Cards
+40 verbose already installed skipping tmp@0.0.23 /Users/JA15283/development/afterten/Cards
+41 verbose already installed skipping bower@^1.3.1 /Users/JA15283/development/afterten/Cards
+42 verbose already installed skipping shelljs@^0.2.6 /Users/JA15283/development/afterten/Cards
+43 verbose already installed skipping karma@^0.12.16 /Users/JA15283/development/afterten/Cards
+44 verbose already installed skipping karma-chrome-launcher@^0.1.4 /Users/JA15283/development/afterten/Cards
+45 verbose already installed skipping karma-firefox-launcher@^0.1.3 /Users/JA15283/development/afterten/Cards
+46 silly install resolved []
+47 info build /Users/JA15283/development/afterten/Cards
+48 info linkStuff angular-phonecat@0.0.0
+49 silly linkStuff angular-phonecat@0.0.0 has /Users/JA15283/development/afterten as its parent node_modules
+50 verbose linkBins angular-phonecat@0.0.0
+51 verbose linkMans angular-phonecat@0.0.0
+52 verbose rebuildBundles angular-phonecat@0.0.0
+53 verbose rebuildBundles [ '.bin',
+53 verbose rebuildBundles   'bower',
+53 verbose rebuildBundles   'http-server',
+53 verbose rebuildBundles   'karma',
+53 verbose rebuildBundles   'karma-chrome-launcher',
+53 verbose rebuildBundles   'karma-firefox-launcher',
+53 verbose rebuildBundles   'karma-jasmine',
+53 verbose rebuildBundles   'protractor',
+53 verbose rebuildBundles   'shelljs',
+53 verbose rebuildBundles   'tmp' ]
+54 info install angular-phonecat@0.0.0
+55 info postinstall angular-phonecat@0.0.0
+56 verbose unsafe-perm in lifecycle true
+57 info angular-phonecat@0.0.0 Failed to exec postinstall script
+58 verbose stack Error: angular-phonecat@0.0.0 postinstall: `bower install`
+58 verbose stack Exit status 1
+58 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+58 verbose stack     at EventEmitter.emit (events.js:110:17)
+58 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+58 verbose stack     at ChildProcess.emit (events.js:110:17)
+58 verbose stack     at maybeClose (child_process.js:1015:16)
+58 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+59 verbose pkgid angular-phonecat@0.0.0
+60 verbose cwd /Users/JA15283/development/afterten/Cards
+61 error Darwin 14.4.0
+62 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+63 error node v0.12.5
+64 error npm  v2.11.2
+65 error code ELIFECYCLE
+66 error angular-phonecat@0.0.0 postinstall: `bower install`
+66 error Exit status 1
+67 error Failed at the angular-phonecat@0.0.0 postinstall script 'bower install'.
+67 error This is most likely a problem with the angular-phonecat package,
+67 error not with npm itself.
+67 error Tell the author that this fails on your system:
+67 error     bower install
+67 error You can get their info via:
+67 error     npm owner ls angular-phonecat
+67 error There is likely additional logging output above.
+68 verbose exit [ 1, true ]

@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+section {
+    width: 100%;
+}
+section:first-child {
+    border-bottom: 2px solid #ccc;
+}
+#AddPlayer input {
+    /*display: inline-block;*/
+    font-size: 22px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+#Dealer {
+    font-size: 22px;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    color: #888;
+}
+/*#AddPlayer input[type=submit] {*/
+    /*display: none;*/
+/*}*/
+/*#AddPlayer .submit {*/
+    /*display: inline-block;*/
+    /*width: 15%;*/
+    /*text-align: right;*/
+    /*vertical-align: middle;*/
+    /*padding-right: 20px;*/
+    /*font-size: 30px;*/
+    /*color: #ccc;*/
+/*}*/
+#content .player {
+    font-size: 18px;
+    padding: 12px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+#content .active {
+    border-left: 5px solid #00ff00;
+}
+#content #players > .bid {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+#content #players > .bid input {
+    width: 61px;
+    padding: 14px;
+    font-size: 22px;
+    outline: 0;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.score {
+    display: inline-block;
+    border-radius: 50%;
+
+    width: 50px;
+    height: 50px;
+    padding-top: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font-size: 22px;
+}
+.player > div {
+    display: inline-block;
+}
+.player > .bid {
+    border: 1px solid #cccccc;
+    padding: 5px 13px;
+    text-align: center;
+    float: right;
+    margin-right: 20px;
+}
+#actions {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#actions > div {
+    display: inline-block;
+    border: 1px solid #cccccc;
+    width: 50%;
+    color: #cccccc;
+    text-align: center;
+    float: left;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: none;
+}
+#actions > .full {
+    width: 100%;
+}
