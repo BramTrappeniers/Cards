@@ -7,7 +7,11 @@ require(
     [
         'app',
         'services/routeResolver',
-        'services/authService'
+        'services/authService',
+        'services/playerService',
+        'services/gameService',
+        'controllers/playerController',
+        'controllers/playersOverviewController'
     ],
     function(){
         angular.bootstrap(document, ['dashboardApp']);

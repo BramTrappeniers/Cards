@@ -7,6 +7,7 @@ define(['services/routeResolver'], function () {
         return $window._;
     }]);
 
+    console.log("Defining the app!");
     var app = angular.module('dashboardApp', ['ngRoute', 'routeResolverServices', 'underscore']);
 
     app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
@@ -37,12 +38,13 @@ define(['services/routeResolver'], function () {
                 //The controllers for orders live in controllers/orders and the views are in views/orders
                 //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
                 //Thanks to Ton Yeung for the idea and contribution
-                .when('/overview', route.resolve('Overview', '', 'vm', false))
+                .when('/overview', route.resolve('Game', '', 'vm', false))
                 .when('/otherpage', route.resolve('Otherpage', '', 'vm', false))
 //                .when('/login/:redirect*?', route.resolve('Login', '', 'vm'))
                 .otherwise({ redirectTo: '/overview' });
 
         }]);
+
 
     app.run(['$rootScope', '$location', 'authService',
         function ($rootScope, $location, authService) {

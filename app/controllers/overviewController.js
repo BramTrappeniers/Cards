@@ -12,6 +12,7 @@ define(['app'], function (app) {
         var nextId = 0;
 
         vm.showNewPlayer = true;
+        vm.openHits = false;
         vm.SECTIONS = {
             AddPlayer: {
                 show: true
@@ -66,15 +67,21 @@ define(['app'], function (app) {
         vm.submitRound = function () {
             for(var i = 0; i < vm.players.length; i++) {
                 var player = vm.players[i];
-                if(player.offer == player.hits){
-                    player.score = player.score + 10 + player.offer;
+                if(player.bid == player.hits){
+                    player.score = player.score + 10 + player.bid;
                 } else {
-                    player.score = player.score - (Math.abs(player.offer - player.hits));
+                    player.score = player.score - (Math.abs(player.bid - player.hits));
                 }
-                player.offer = player.hits = undefined;
+                player.bid = player.hits = null;
             };
             console.log(vm.players);
             vm.currentDealer = getNextDealer();
+            var nextPlayerIndex = vm.currentDealer.index + 1;
+            if(nextPlayerIndex == vm.players.length) {
+                nextPlayerIndex = 0;
+            }
+            vm.activatePlayer(vm.players[nextPlayerIndex]);
+            vm.openHits = false;
         }
         vm.activatePlayer = function (player) {
             console.log("Open bidding ..." + player.id);
@@ -83,6 +90,7 @@ define(['app'], function (app) {
             }
             player.active = true;
             vm.bidPlayer = player.bid;
+            vm.hitsPlayer = player.hits;
 //            _.each(vm.players, function(player) {
 //                player.active = false;
 //            });
@@ -93,15 +101,30 @@ define(['app'], function (app) {
             // - improve focus of the field
             console.log("Register bidding ... ");
             player.bid = vm.bidPlayer;
-            vm.bidPlayer = null;
             for(var i = 0; i< vm.players.length; i++){
                 if(player == vm.players[i]) {
                     var nextPlayerIndex = i + 1;
                     if(nextPlayerIndex == vm.players.length) {
-                        vm.activatePlayer(vm.players[0])
-                    } else {
-                        vm.activatePlayer(vm.players[nextPlayerIndex]);
+                        nextPlayerIndex = 0;
                     }
+                    vm.activatePlayer(vm.players[nextPlayerIndex]);
+                    vm.bidPlayer = vm.players[nextPlayerIndex].bid;
+                    if(vm.players[nextPlayerIndex].bid != null) {
+                        vm.openHits = true;
+                    }
+                }
+            }
+        }
+        vm.registerHits = function (player) {
+            player.hits = vm.hitsPlayer;
+            for(var i = 0; i< vm.players.length; i++){
+                if(player == vm.players[i]) {
+                    var nextPlayerIndex = i + 1;
+                    if(nextPlayerIndex == vm.players.length) {
+                        nextPlayerIndex = 0;
+                    }
+                    vm.activatePlayer(vm.players[nextPlayerIndex]);
+                    vm.hitsPlayer = vm.players[nextPlayerIndex].hits;
                 }
             }
         }
