@@ -4,7 +4,7 @@
         <div ng-if="vm.gameInProgress">MENU</div>
     </section>
     <section id="content">
-        <div ng-include="'app/views/players.html'"></div>
+        <div ng-include="'app/views/players.html'" ng-if="vm.TABS.players.show"></div>
         <!--<div id="players">-->
                 <!--<div ng-repeat="player in vm.players" class="player" ng-click="vm.activatePlayer(player)">-->
                     <!--<div class="score">{{player.score}}</div>-->

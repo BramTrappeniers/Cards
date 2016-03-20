@@ -10,14 +10,18 @@ define(['app'], function (app) {
     var playerService = function(){
         var players = [{
             name: "Bram T",
-            selected: false
+            selected: false,
+            score: 0
         }, {
             name: "Rob",
-            selected: false
+            selected: false,
+            score: 0
         }, {
             name: "Maarten",
-            selected: false
+            selected: false,
+            score: 0
         }];
+        var activePlayer;
         var observerCalls = [];
 
         var registerObserver = function(fn){
@@ -34,14 +38,48 @@ define(['app'], function (app) {
             notifyObservers();
         };
 
-        var getPlayers = function(){
-            return players;
+        var getPlayers = function(filtered){
+            if(filtered){
+                var selected = [];
+                angular.forEach(players, function(player){
+                    if(player.selected){
+                        selected.push(player);
+                    }
+                });
+                return selected;
+            } else {
+                return players;
+            }
         }
+
+        var switchPlayers = function(switchedPlayer){
+            console.log('switching in service ...');
+
+            if(activePlayer != switchedPlayer){
+                var indexOfActivePlayer = 0, indexOfSwitchedPlayer = 0;
+                angular.forEach(players, function(player, index){
+                    if(player == activePlayer){
+                        indexOfActivePlayer = index;
+                    } else if(player == switchedPlayer){
+                        indexOfSwitchedPlayer = index;
+                    }
+                });
+                players[indexOfActivePlayer] = switchedPlayer;
+                players[indexOfSwitchedPlayer] = activePlayer;
+            }
+        };
+
+        var setActivePlayer = function(player){
+            console.log(player);
+            activePlayer = player;
+        };
 
         return {
             addPlayer: addPlayer,
             getPlayers: getPlayers,
-            registerObserver: registerObserver
+            registerObserver: registerObserver,
+            switchPlayers: switchPlayers,
+            setActivePlayer: setActivePlayer
         }
     }
 

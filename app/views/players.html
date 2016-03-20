@@ -1,12 +1,15 @@
 <div ng-controller="PlayersOverviewController as poCtrl">
     <form>
-        <div class="player" ng-repeat="player in poCtrl.regularPlayers">
-            <label><input type="checkbox" name="player" ng-model="player.selected">{{player.name}}</label>
+        <div drag-and-drop dragactive="poCtrl.selectActivePlayer(player)"  dropenter="poCtrl.switchPlayers(player)" class="player" ng-repeat="player in poCtrl.players">
+            <div class="score" ng-if="poCtrl.isGameStarted">{{player.score}}</div>
+            <label>
+                <input type="checkbox" name="player" ng-model="player.selected" ng-if="!poCtrl.isGameStarted">{{player.name}}
+            </label>
             <i class="button fa fa-times-circle" ng-click="poCtrl.removePlayer(player)"></i>
         </div>
     </form>
 
     <div class="actions">
-        <div class="button single" ng-click="poCtrl.startGame()">Start spel</div>
+        <div class="button single" ng-click="poCtrl.startGame()" ng-if="!poCtrl.isGameStarted">Start spel</div>
     </div>
 </div>

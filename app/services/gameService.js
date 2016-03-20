@@ -36,11 +36,15 @@ define(['app'], function (app) {
         var isGameInProgress = function(){
             return gameStatus == STATUSSES.STARTED;
         }
+        var isGameStarted = function(){
+            return gameStatus != STATUSSES.INIT;
+        }
 
         return {
             startGame: startGame,
             endGame: endGame,
             isGameInProgress: isGameInProgress,
+            isGameStarted: isGameStarted,
             registerObserver: registerObserver
         }
     };

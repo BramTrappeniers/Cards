@@ -13,6 +13,11 @@ define(['app'], function (app) {
         var vm = this;
 
         vm.gameInProgress = gameService.isGameInProgress();
+        vm.TABS = {
+            players: {
+                show: true
+            }
+        }
 
         gameService.registerObserver(function(){
             vm.gameInProgress = gameService.isGameInProgress();

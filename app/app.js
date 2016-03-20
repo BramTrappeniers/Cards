@@ -38,6 +38,7 @@ define(['services/routeResolver'], function () {
                 //The controllers for orders live in controllers/orders and the views are in views/orders
                 //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
                 //Thanks to Ton Yeung for the idea and contribution
+//                .when('', route.resolve('Overview', '', 'oCtrl', false))
                 .when('/overview', route.resolve('Game', '', 'vm', false))
                 .when('/otherpage', route.resolve('Otherpage', '', 'vm', false))
 //                .when('/login/:redirect*?', route.resolve('Login', '', 'vm'))

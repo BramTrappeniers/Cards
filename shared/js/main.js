@@ -6,6 +6,7 @@ require.config({
 require(
     [
         'app',
+        'directives/dragAndDrop',
         'services/routeResolver',
         'services/authService',
         'services/playerService',

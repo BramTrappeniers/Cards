@@ -9,23 +9,37 @@ define(['app'], function (app) {
 
         var vm = this;
 
-        vm.regularPlayers = playerService.getPlayers();
+        vm.selectActivePlayer = function(player){
+            playerService.setActivePlayer(player);
+        }
+
+        vm.switchPlayers = function(player){
+            console.log('switching in controller ...');
+            playerService.switchPlayers(player);
+        };
+
+        vm.players = playerService.getPlayers();
+        vm.isGameStarted = gameService.isGameStarted();
 
         vm.removePlayer = function(name){
             console.log("remove player");
             var toBeRemoved = name || "test";
-            var index = vm.regularPlayers.indexOf(toBeRemoved);
+            var index = vm.players.indexOf(toBeRemoved);
             if(index > -1){
-                vm.regularPlayers.splice(index, 1);
+                vm.players.splice(index, 1);
             }
         };
         vm.startGame = function(){
             gameService.startGame();
+            vm.players = playerService.getPlayers(gameService.isGameStarted());
         };
         var updatePlayers = function(){
-            vm.regularPlayers = playerService.getPlayers();
+            vm.players = playerService.getPlayers();
         };
         playerService.registerObserver(updatePlayers);
+        gameService.registerObserver(function(){
+            vm.isGameStarted = gameService.isGameStarted();
+        });
     };
 
     PlayersOverviewController.$inject = injectParams;

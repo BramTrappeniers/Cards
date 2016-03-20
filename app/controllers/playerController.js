@@ -14,7 +14,8 @@ define(['app'], function (app) {
             if(vm.playersName != null && vm.playersName.length > 0) {
                 playerService.addPlayer({
                     name: vm.playersName,
-                    selected: true
+                    selected: true,
+                    score: 100
                 });
                 vm.playersName = null;
             }
