@@ -5,28 +5,42 @@
 
 define(['app'], function (app) {
 
-    var injectParams = ['gameService'];
+    var injectParams = ['gameService', 'playerService'];
 
-    var GameController = function (gameService) {
+    var GameController = function (gameService, playerService) {
         console.log("Loading game ...");
 
         var vm = this;
 
-        vm.gameInProgress = gameService.isGameInProgress();
-        vm.TABS = {
-            players: {
-                show: true
+        vm.TABS = [
+            {
+                name: "spelers",
+                show: true,
+                src: "app/views/game/players.html"
+            },
+            {
+                name: "bieden",
+                show: false,
+                src: "app/views/game/bidding.html"
             }
-        }
+        ];
 
-        gameService.registerObserver(function(){
-            vm.gameInProgress = gameService.isGameInProgress();
-        });
+        var resetAllTabs= function(){
+            angular.forEach(vm.TABS, function(tab){
+                tab.show = false;
+            })
+        };
 
+        vm.activateTab = function(tab){
+            resetAllTabs();
+            tab.show = true;
+        };
+
+        vm.players = playerService.getPlayers(true);
     };
 
     GameController.$inject = injectParams;
 
-    app.register.controller('GameController', GameController);
+    app.controller('GameController', GameController);
 
 });

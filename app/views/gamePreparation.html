@@ -1,0 +1,19 @@
+<div data-ng-controller="gamePreparationController as gpCtrl">
+    <section id="header">
+        <form id="addPlayer" ng-submit="gpCtrl.addPlayer()">
+            <input type="text" placeholder="Naam" ng-model="gpCtrl.playersName">
+        </form>
+    </section>
+    <section id="content">
+        <div drag-and-drop dragactive="gpCtrl.selectActivePlayer(player)"  dropenter="gpCtrl.switchPlayers(player)" class="player" ng-repeat="player in gpCtrl.players">
+            <label>
+                <input type="checkbox" name="player" ng-model="player.selected">{{player.name}}
+            </label>
+            <i class="button fa fa-times-circle" ng-click="gpCtrl.removePlayer(player)"></i>
+        </div>
+
+        <div class="actions">
+            <div class="button single" ng-click="gpCtrl.startGame()">Start spel</div>
+        </div>
+    </section>
+</div>

@@ -11,6 +11,8 @@ require(
         'services/authService',
         'services/playerService',
         'services/gameService',
+        'controllers/gamePreparationController',
+        'controllers/gameController',
         'controllers/playerController',
         'controllers/playersOverviewController'
     ],
